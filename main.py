@@ -51,7 +51,6 @@ def main():
                 correct_input = False
 
 
-global contact_book
 contact_book = []
 
 
