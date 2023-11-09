@@ -29,7 +29,7 @@ you want deleted.
 ## Getting started
 1. Clone the repository to your machine 
 ```shell
-git clone https://github.com/your-username/Contact-book-modified.git
+git clone https://github.com/EmmanuelBronyah/Contact-book-modified.git
 ```
 
 2. Navigate to project directory
