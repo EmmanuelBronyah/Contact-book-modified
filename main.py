@@ -38,7 +38,10 @@ def main():
             case None:
                 print('Enter a valid command')
             case 'add':
-                add_contact()
+                try:
+                    add_contact()
+                except ValueError as e:
+                    print(e)
             case 'edit':
                 edit_contact()
             case 'search':
@@ -75,21 +78,21 @@ def add_contact():
 
     Input contact detail in the form 'name,number,address,email', without spaces and separated by commas .
     """
-    try:
-        number_of_contacts = int(input('How many contacts do you want to add > '))
-        if number_of_contacts > 0:
-            for i in range(1, number_of_contacts+1):
+    number_of_contacts = input('How many contacts do you want to add > ')
+    if number_of_contacts.isdigit():
+        if int(number_of_contacts) > 0:
+            for i in range(1, int(number_of_contacts)+1):
                 contact = input(f'Enter contact details of contact {i} '
                                 f'in the form "name,number,address,email": ').lower().split(',')
                 try:
                     name, number, address, email = contact
                     contact_book.append(Contact(name, number, address, email))
                 except ValueError:
-                    print('Fill in empty detail as "None"')
+                    raise ValueError('Fill in empty detail as "None"')
         else:
             print('Number should not be zero or less')
-    except ValueError:
-        print('Enter a valid number')
+    else:
+        print('Enter a number.')
 
 
 def edit_contact():
